@@ -1,0 +1,466 @@
+/* ====================================================================
+ * 🎨 DESIGN SYSTEM & VARIABLES (ขาว คลีน น่ารัก มินิมอล พาสเทล)
+ * ==================================================================== */
+:root {
+  --bg-primary: #fdfbfb;
+  --bg-secondary: #f4f6f9;
+  --card-bg: rgba(255, 255, 255, 0.96);
+  --card-border: rgba(255, 255, 255, 0.98);
+  --glass-shadow: 0 25px 65px rgba(184, 0, 36, 0.2), 0 8px 25px rgba(0, 0, 0, 0.04);
+
+  --color-accent: #ff9ebb;
+  /* Soft Romantic Pink */
+  --color-accent-hover: #ff7597;
+  --color-accent-light: #fff0f4;
+  --color-text-main: #3d3b40;
+  --color-text-muted: #7d7987;
+  --color-heart: #b80024;
+  /* Deep Crimson Red */
+  --color-white: #ffffff;
+
+  --font-heading: 'Mali', 'Prompt', cursive, sans-serif;
+  --font-body: 'Prompt', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --radius-lg: 32px;
+  --radius-md: 20px;
+  --radius-sm: 12px;
+  --radius-full: 9999px;
+
+  --transition-fast: 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --transition-spring: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* ====================================================================
+ * 🌸 BASE & RESET
+ * ==================================================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background: linear-gradient(135deg, #fffcfc 0%, #fbf0f3 50%, #f4f6fc 100%);
+  color: var(--color-text-main);
+  font-family: var(--font-body);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  line-height: 1.6;
+}
+
+/* Canvas background */
+#bgCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.app-container {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 30px 20px 80px 20px;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+/* Glassmorphism Card Base */
+.glass-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--glass-shadow);
+  padding: 50px 45px;
+}
+
+/* Fade in animation */
+.fade-in {
+  animation: fadeInUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px) scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ====================================================================
+ * 🌟 FRONT MASSIVE DEEP RED HEART (หัวใจสีแดงเข้มดวงยักษ์ใหญ่ตามรูป Paint)
+ * ==================================================================== */
+.holy-heart-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  margin: auto;
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 10;
+  user-select: none;
+}
+
+.holy-heart-stage.dissolving {
+  opacity: 0;
+  transform: scale(1.3);
+  pointer-events: none;
+}
+
+.holy-heart-stage.hidden {
+  display: none !important;
+}
+
+.massive-red-heart-wrapper {
+  position: relative;
+  width: 520px;
+  height: 470px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.red-aura-glow {
+  position: absolute;
+  inset: -40px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(184, 0, 36, 0.4) 0%, rgba(255, 182, 193, 0.15) 60%, transparent 80%);
+  animation: pulseRedAura 3s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes pulseRedAura {
+  0% {
+    transform: scale(0.92);
+    opacity: 0.6;
+  }
+
+  100% {
+    transform: scale(1.35);
+    opacity: 1;
+  }
+}
+
+.massive-red-heart {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: floatRedHeart 3.5s ease-in-out infinite alternate;
+  transition: transform var(--transition-spring);
+}
+
+.giant-red-heart-svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 25px 45px rgba(184, 0, 36, 0.45));
+}
+
+@keyframes floatRedHeart {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+
+  100% {
+    transform: translateY(-20px) scale(1.04);
+  }
+}
+
+.massive-red-heart-wrapper:hover .massive-red-heart {
+  transform: scale(1.1) rotate(3deg) !important;
+}
+
+.sparkle-overlay-1 {
+  position: absolute;
+  top: 50px;
+  right: 60px;
+  font-size: 3.2rem;
+  animation: sparkleRotate 2.2s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+.sparkle-overlay-2 {
+  position: absolute;
+  bottom: 60px;
+  left: 60px;
+  font-size: 2.5rem;
+  animation: floatBounce 2.2s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes sparkleRotate {
+  0% {
+    transform: scale(0.8) rotate(0deg);
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: scale(1.35) rotate(30deg);
+    opacity: 1;
+  }
+}
+
+@keyframes floatBounce {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-10px);
+  }
+}
+
+.holy-heart-hint {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-heart);
+  background: rgba(255, 255, 255, 0.96);
+  padding: 16px 40px;
+  border-radius: var(--radius-full);
+  box-shadow: 0 14px 40px rgba(184, 0, 36, 0.25);
+  border: 1px solid rgba(255, 182, 193, 0.7);
+  animation: floatHintText 3.5s ease-in-out infinite alternate;
+}
+
+@keyframes floatHintText {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-8px);
+  }
+}
+
+/* ====================================================================
+ * 🌸 WIND BLOWN FLOWER PETAL DISSOLVE EFFECT (เกสรปลิวตามลม)
+ * ==================================================================== */
+.wind-petal {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  will-change: transform, opacity;
+  animation: windBlowDrift var(--duration, 2.5s) cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+@keyframes windBlowDrift {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+
+  50% {
+    opacity: 0.85;
+    transform: translate(var(--dx-mid, 150px), var(--dy-mid, -110px)) scale(1.4) rotate(var(--rot-mid, 180deg));
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(var(--dx-end, 500px), var(--dy-end, -350px)) scale(0.2) rotate(var(--rot-end, 540deg));
+  }
+}
+
+/* ====================================================================
+ * 📜 REVEALED SECRET LOVE NOTE CARD (แสดงรูปถ่ายทรงสูงเต็มๆ ทั้งรูป!)
+ * ==================================================================== */
+.secret-note-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(30px) scale(0.92);
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.secret-note-container.hidden {
+  display: none;
+}
+
+.secret-note-container.visible {
+  display: flex !important;
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.note-card-box {
+  width: 100%;
+  max-width: 680px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.note-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-accent-light);
+  color: var(--color-heart);
+  padding: 8px 26px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 22px;
+  border: 1px solid rgba(255, 158, 187, 0.4);
+  box-shadow: 0 4px 15px rgba(255, 158, 187, 0.15);
+}
+
+.note-greeting {
+  font-family: var(--font-heading);
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: var(--color-heart);
+  margin-bottom: 20px;
+  width: 100%;
+  text-align: left;
+}
+
+.note-paper-body {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  line-height: 2.2;
+  color: var(--color-text-main);
+  white-space: pre-line;
+  margin-bottom: 30px;
+  width: 100%;
+  text-align: left;
+}
+
+/* User Photo Frame - แสดงรูปทรงแนวตั้งเต็มๆ ยาวลงมา เห็นครบหมดทั้งรูป! */
+.note-photo-wrapper {
+  width: 100%;
+  max-height: none;
+  /* เอาจำกัดความสูงออก เพื่อให้เห็นรูปยาวลงมาครบ 100% */
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  margin-bottom: 30px;
+  border: 6px solid white;
+  box-shadow: 0 12px 35px rgba(184, 0, 36, 0.2);
+  background: #fdfdfd;
+}
+
+.note-photo {
+  width: 100%;
+  height: auto;
+  /* รักษาอัตราส่วนรูปทรงสูง เห็นตั้งแต่หัวถึงเท้า 100% */
+  display: block;
+  object-fit: contain;
+}
+
+.counter-badge-box {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 158, 187, 0.45);
+  border-radius: var(--radius-sm);
+  padding: 14px 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 1.05rem;
+  color: var(--color-text-main);
+  margin-bottom: 30px;
+  width: 100%;
+  box-shadow: 0 6px 20px rgba(255, 158, 187, 0.15);
+}
+
+.counter-badge-box i {
+  color: var(--color-heart);
+  font-size: 1.25rem;
+}
+
+.counter-badge-box strong {
+  color: var(--color-heart);
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.35rem;
+}
+
+.note-paper-footer {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-accent-hover);
+  width: 100%;
+  text-align: right;
+  border-top: 1.5px dashed rgba(255, 158, 187, 0.45);
+  padding-top: 20px;
+}
+
+/* RESPONSIVE BREAKPOINTS */
+@media (max-width: 768px) {
+  .massive-red-heart-wrapper {
+    width: 360px;
+    height: 320px;
+  }
+
+  .sparkle-overlay-1 {
+    font-size: 2.2rem;
+    top: 30px;
+    right: 35px;
+  }
+
+  .sparkle-overlay-2 {
+    font-size: 1.8rem;
+    bottom: 35px;
+    left: 35px;
+  }
+
+  .holy-heart-hint {
+    font-size: 1.2rem;
+    padding: 12px 30px;
+  }
+
+  .glass-card {
+    padding: 35px 25px;
+  }
+
+  .note-paper-body {
+    font-size: 1.08rem;
+    line-height: 2;
+  }
+}
+
+@media (max-width: 480px) {
+  .massive-red-heart-wrapper {
+    width: 290px;
+    height: 260px;
+  }
+
+  .holy-heart-hint {
+    font-size: 1rem;
+    padding: 10px 22px;
+  }
+
+  .counter-badge-box {
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.9rem;
+  }
+}

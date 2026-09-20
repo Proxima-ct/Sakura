@@ -9,14 +9,13 @@
   <!-- Google Fonts: Mali & Prompt & Outfit -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Mali:ital,wght@0,400;0,600;0,700;1,400&family=Prompt:wght@300;400;500;600;700&family=Outfit:wght@400;600;700&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Mali:ital,wght@0,400;0,600;0,700;1,400&family=Prompt:wght@300;400;500;600;700&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <!-- Stylesheet -->
+  <!-- Stylesheets (รองรับทั้งโฟลเดอร์หลัก และโฟลเดอร์ assets) -->
+  <link rel="stylesheet" href="assets/style.css">
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -46,10 +45,7 @@
                 <feDropShadow dx="0" dy="15" stdDeviation="20" flood-color="#990018" flood-opacity="0.45" />
               </filter>
             </defs>
-            <!-- SVG Path matching exact Paint drawing heart ratio -->
-            <path
-              d="M 250,110 C 180,10 20,50 20,200 C 20,330 250,430 250,430 C 250,430 480,330 480,200 C 480,50 320,10 250,110 Z"
-              fill="url(#redHeartGrad)" filter="url(#deepShadow)" />
+            <path d="M 250,110 C 180,10 20,50 20,200 C 20,330 250,430 250,430 C 250,430 480,330 480,200 C 480,50 320,10 250,110 Z" fill="url(#redHeartGrad)" filter="url(#deepShadow)" />
           </svg>
           <span class="sparkle-overlay-1">✨</span>
           <span class="sparkle-overlay-2">🤍</span>
@@ -77,16 +73,15 @@
           <!-- Content loaded from config.js -->
         </div>
 
-        <!-- Photo inside Note (User uploaded photo!) -->
+        <!-- Photo inside Note -->
         <div class="note-photo-wrapper" id="notePhotoWrapper">
-          <img id="notePhoto" src="images/photo.jpg" alt="Our Special Memory" class="note-photo">
+          <img id="notePhoto" src="assets/images/photo.jpg" alt="Our Special Memory" class="note-photo">
         </div>
 
         <!-- Days Counter Badge -->
         <div class="counter-badge-box">
           <i class="fa-regular fa-clock"></i>
-          <span>คุยกันมาแล้ว <strong id="daysCount">0</strong> วัน <strong id="hoursCount">00</strong> ชั่วโมง <strong
-              id="minutesCount">00</strong> นาที ✨</span>
+          <span>คุยกันมาแล้ว <strong id="daysCount">0</strong> วัน <strong id="hoursCount">00</strong> ชั่วโมง <strong id="minutesCount">00</strong> นาที ✨</span>
         </div>
 
         <div class="note-paper-footer" id="noteSignature">
@@ -99,8 +94,10 @@
 
   </main>
 
-  <!-- Load Config First, then App Script -->
+  <!-- Load Config First, then App Script (รองรับการโหลดทั้งจาก root และ assets) -->
+  <script src="assets/config.js"></script>
   <script src="config.js"></script>
+  <script src="assets/app.js"></script>
   <script src="app.js"></script>
 </body>
 
