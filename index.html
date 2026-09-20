@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Sakura 💖</title>
+
+  <!-- Google Fonts: Mali & Prompt & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Mali:ital,wght@0,400;0,600;0,700;1,400&family=Prompt:wght@300;400;500;600;700&family=Outfit:wght@400;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- 🌸 CANVAS EFFECT (Floating background heart particles) -->
+  <canvas id="bgCanvas"></canvas>
+
+  <!-- Main Container -->
+  <main class="app-container">
+
+    <!-- =============================================================== -->
+    <!-- 🌟 FRONT MASSIVE DEEP RED HEART (หัวใจสีแดงเข้มดวงยักษ์ใหญ่ตามรูป) -->
+    <!-- =============================================================== -->
+    <div class="holy-heart-stage" id="holyHeartStage">
+      <div class="massive-red-heart-wrapper" id="holyHeartWrapper">
+        <div class="red-aura-glow"></div>
+        <div class="massive-red-heart" id="holyGiantHeart">
+          <svg class="giant-red-heart-svg" viewBox="0 0 500 450">
+            <defs>
+              <linearGradient id="redHeartGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#b80024" />
+                <stop offset="60%" stop-color="#990018" />
+                <stop offset="100%" stop-color="#7a0012" />
+              </linearGradient>
+              <filter id="deepShadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="15" stdDeviation="20" flood-color="#990018" flood-opacity="0.45" />
+              </filter>
+            </defs>
+            <!-- SVG Path matching exact Paint drawing heart ratio -->
+            <path
+              d="M 250,110 C 180,10 20,50 20,200 C 20,330 250,430 250,430 C 250,430 480,330 480,200 C 480,50 320,10 250,110 Z"
+              fill="url(#redHeartGrad)" filter="url(#deepShadow)" />
+          </svg>
+          <span class="sparkle-overlay-1">✨</span>
+          <span class="sparkle-overlay-2">🤍</span>
+        </div>
+      </div>
+      <p class="holy-heart-hint" id="heartHintText">กดที่หัวใจเพื่อเปิดอ่านสิ่งที่อยากจะบอก... 🤍</p>
+    </div>
+
+
+    <!-- =============================================================== -->
+    <!-- 📜 REVEALED SECRET LOVE NOTE (การ์ดความในใจ + รูปถ่ายของคุณ) -->
+    <!-- =============================================================== -->
+    <div class="secret-note-container hidden" id="secretNoteContainer">
+
+      <div class="note-card-box glass-card fade-in">
+
+        <div class="note-badge">
+          <i class="fa-solid fa-heart"></i> Special For Sakura
+        </div>
+
+        <div class="note-greeting" id="noteGreeting">ถึงซากูระ🌸...</div>
+
+        <!-- Note Body Text -->
+        <div class="note-paper-body" id="noteBody">
+          <!-- Content loaded from config.js -->
+        </div>
+
+        <!-- Photo inside Note (User uploaded photo!) -->
+        <div class="note-photo-wrapper" id="notePhotoWrapper">
+          <img id="notePhoto" src="images/photo.jpg" alt="Our Special Memory" class="note-photo">
+        </div>
+
+        <!-- Days Counter Badge -->
+        <div class="counter-badge-box">
+          <i class="fa-regular fa-clock"></i>
+          <span>คุยกันมาแล้ว <strong id="daysCount">0</strong> วัน <strong id="hoursCount">00</strong> ชั่วโมง <strong
+              id="minutesCount">00</strong> นาที ✨</span>
+        </div>
+
+        <div class="note-paper-footer" id="noteSignature">
+          จากคนที่คิดถึงและรักซาเสมอ 💖
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Load Config First, then App Script -->
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
